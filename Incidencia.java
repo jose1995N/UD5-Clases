@@ -32,8 +32,8 @@ public class Incidencia {
 
     @Override
     public String toString() {
-        return "Código: " + codigo + ", Puesto: " + numeroPuesto + ", Estado: " + estado +
-               ", Descripción: " + descripcion + ", Información: " + (informacionResolucion != null ? informacionResolucion : "Pendiente");
+        return "Incidencia: " + codigo + ", Puesto: " + numeroPuesto + ", Estado: " + estado 
+               +"-" + descripcion + ", - " + (informacionResolucion != null ? informacionResolucion : "Pendiente");
     }
 }
 
