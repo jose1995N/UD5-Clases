@@ -8,16 +8,16 @@ public class Incidencia {
     private String estado;
     private String descripcion;
     private String informacionResolucion;
-
+ 
+    //contructor
     public Incidencia(int numeroPuesto, String descripcion) {
         this.codigo = proximoCodigo++;
         this.numeroPuesto = numeroPuesto;
         this.descripcion = descripcion;
         this.estado = "pendiente";
-        this.informacionResolucion = null;
         pendientes++;
     }
-
+    //Metodo objeto.
     public void resolver(String informacionResolucion) {
         if (this.estado.equals("pendiente")) {
             this.estado = "resuelta";
@@ -25,15 +25,26 @@ public class Incidencia {
             pendientes--;
         }
     }
-
+    //Metodo clase
     public static int getPendientes() {
         return pendientes;
     }
 
     @Override
-    public String toString() {
-        return "Incidencia: " + codigo + ", Puesto: " + numeroPuesto + ", Estado: " + estado 
-               +"-" + descripcion + ", - " + (informacionResolucion != null ? informacionResolucion : "Pendiente");
+     public String toString() {
+        String mensaje="";
+        if (estado.equals("pendiente")) {
+            mensaje = "Incidencia "+codigo +": " + "- Puesto: "+ numeroPuesto+ " - "+ descripcion + " - "+ estado ;
+
+        } else if (estado.equals("resuelta")) {
+            mensaje = "Incidencia "+codigo+": " + "- Puesto: "+ numeroPuesto+ " - "+ estado +" - "+informacionResolucion;
+        }
+        return mensaje;
     }
+
+    //public String toString() {
+  //      return "Incidencia: " + codigo + ", Puesto: " + numeroPuesto + ", Estado: " + estado 
+  //             +"-" + descripcion + ", - " + (informacionResolucion != null ? informacionResolucion : "Pendiente");
+   // }
 }
 
